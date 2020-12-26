@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autoreg;
+using System;
 
 namespace TestConsole
 {
@@ -6,7 +7,9 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SmsActivator activator = new SmsActivator();
+
+            Console.WriteLine(activator.GetBalance());
         }
     }
 }
