@@ -9,7 +9,7 @@ namespace TestConsole
         {
             SmsActivator activator = new SmsActivator();
 
-            Console.WriteLine(activator.GetBalance());
+            Console.WriteLine(activator.GetAmountGMailPhoneNumber());
         }
     }
 }

@@ -10,5 +10,8 @@ namespace Autoreg
         public static string APIURL = "https://sms-activate.ru/stubs/handler_api.php?";
         public static string ACTIONGETNUMBERSTATUS = "action=getNumbersStatus";
         public static string ACTIONGETBALANCE = "action=getBalance";
+        public static string ACTIONGETNUMBER = "action=getNumber";
+        public static string SERVICEGOOGLE = "service=go";
+        public static string COUNTRYRUSSIA = "country=0";
     }
 }

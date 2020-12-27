@@ -54,7 +54,7 @@ namespace Autoreg
             Thread.Sleep(random.Next(2500, 5000));
 
             _driver.FindElement(By.XPath(".//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc']")).Click();
-            String phoneNumber = activator.GetPhoneNumber();
+            String phoneNumber = activator.GetAmountGMailPhoneNumber();
         }
     }
 }
