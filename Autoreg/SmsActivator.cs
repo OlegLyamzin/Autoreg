@@ -10,7 +10,7 @@ namespace Autoreg
 {
     public class SmsActivator
     {
-        
+        private string _lastId;
 
         public int GetAmountGMailPhoneNumber()
         {
@@ -28,9 +28,41 @@ namespace Autoreg
 
         public string GetGMailPhoneNumber()
         {
-            string response = RequestAPI(new string[] { Constants.ACTIONGETBALANCE });
+            string[] parameters = new string[]
+            {
+                Constants.ACTIONGETNUMBER,
+                Constants.SERVICEGOOGLE,
+                Constants.COUNTRYRUSSIA
+            };
+            string response = RequestAPI(parameters);
             string[] phoneNumber = response.Split(':');
+            _lastId = phoneNumber[1];
             return phoneNumber[2];
+        }
+
+        public void SetStatusReady()
+        {
+            string[] parameters = new string[]
+            {
+                Constants.ACTIONSETSTATUS,
+                Constants.STATUSREADY,
+                "id=" + _lastId
+            };
+            string response = RequestAPI(parameters);
+        }
+
+        public string TryGetCodeActivation()
+        {
+            string code = null;
+            string[] parameters = new string[]
+            {
+                Constants.ACTIONGETSTATUS,
+                "id=" + _lastId
+            };
+            string response = RequestAPI(parameters);
+            if (!response.Equals("STATUS_WAIT_CODE"))
+                code = response.Split(':')[1];
+            return code;
         }
 
         public string RequestAPI(string[] parameters)
