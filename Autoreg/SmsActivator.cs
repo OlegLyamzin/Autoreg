@@ -40,16 +40,17 @@ namespace Autoreg
             return phoneNumber[2];
         }
 
-        public void SetStatusReady()
+        public void SetStatus(string status)
         {
             string[] parameters = new string[]
             {
                 Constants.ACTIONSETSTATUS,
-                Constants.STATUSREADY,
+                status,
                 "id=" + _lastId
             };
             string response = RequestAPI(parameters);
         }
+
 
         public string TryGetCodeActivation()
         {
@@ -70,7 +71,7 @@ namespace Autoreg
             string requestString = Constants.APIURL + Constants.APIKEY;
             for (int i = 0; i < parameters.Length; i++)
             {
-                requestString = requestString + parameters[i];
+                requestString = requestString +"&"+ parameters[i];
             }
             WebRequest request = WebRequest.Create(requestString);
             request.Method = "POST";
