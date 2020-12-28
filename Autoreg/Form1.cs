@@ -21,7 +21,7 @@ namespace Autoreg
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new SeleniumManager(new OperationCreator()).GMailRegistration();
+            new SeleniumManager(new OperationCreator()).GMailRegistration(new Person());
         }
 
         private void Form1_Load(object sender, EventArgs e)

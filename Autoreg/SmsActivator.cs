@@ -79,7 +79,9 @@ namespace Autoreg
             WebRequest request = WebRequest.Create(requestString);
             request.Method = "POST";
             WebResponse response = request.GetResponse();
-            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();            
+            StreamReader stream = new StreamReader(response.GetResponseStream());
+            string content = stream.ReadToEnd();
+            stream.Close();
             return content;
         }
     }
