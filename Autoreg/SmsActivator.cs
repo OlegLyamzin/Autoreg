@@ -62,7 +62,10 @@ namespace Autoreg
             };
             string response = RequestAPI(parameters);
             if (!response.Equals("STATUS_WAIT_CODE"))
+            {
                 code = response.Split(':')[1];
+                SetStatus(Constants.STATUSFINISH);
+            }
             return code;
         }
 
